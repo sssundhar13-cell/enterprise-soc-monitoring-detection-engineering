@@ -17,35 +17,38 @@ The environment uses multiple virtual machines connected through a virtualized n
 | Testing Machine | Kali Linux | Authorized security testing |
 
 ## 3. Logical Architecture Diagram
-## 3. Logical Architecture Diagram
-
 ```text
-             KALI LINUX
-          (Security Testing)
-                  |
-                  | Nmap Scan Traffic
-                  v
-          OPNSENSE FIREWALL
-                  |
-          +-------+----------------+
-          |                        |
-     Filtered Traffic          Firewall Logs
-          |                        |
-          v                        v
-      WINDOWS 11              UBUNTU SOC SERVER
-   (Wazuh Agent + Sysmon)     (Wazuh Manager)
-          |                        |
-          | Agent Events           v
-          +----------------> WAZUH INDEXER
-                                   |
-                                   v
-                             WAZUH DASHBOARD
+                  KALI LINUX
+              (Security Testing)
+                      |
+                      | Nmap Scan Traffic
+                      v
+              OPNSENSE FIREWALL
+                      |
+             +--------+---------+
+             |                  |
+       Filtered Traffic     Firewall Logs
+             |                  |
+             v                  v
+         WINDOWS 11        WAZUH MANAGER
+      (Wazuh Agent +       (Ubuntu SOC Server)
+          Sysmon)                 |
+             |                   |
+             +-------------------+
+                                 |
+                                 v
+                          WAZUH INDEXER
+                                 |
+                                 v
+                         WAZUH DASHBOARD
 
-          WINDOWS 11
-               |
-               | AD Authentication / DNS
-               v
-       WINDOWS SERVER 2019
-        (Active Directory
-             + DNS)
 
+         WINDOWS 11
+              |
+              | AD Authentication / DNS
+              |
+              v
+      WINDOWS SERVER 2019
+       (Active Directory
+            + DNS)
+```
