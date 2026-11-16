@@ -25,6 +25,8 @@ The lab consists of the following components:
 | OPNsense | Network firewall and traffic monitoring |
 | Kali Linux | Controlled security testing |
 
+The architecture documentation records the OPNsense-based topology used during the earlier firewall integration tests. The OPNsense VM is currently powered off.
+
 ## Technologies Used
 
 - Wazuh 4.14.8
@@ -55,7 +57,7 @@ Configured a Windows Server 2019 Domain Controller with Active Directory Domain 
 
 ### 4. Firewall Log Monitoring
 
-Integrated OPNsense firewall logs with Wazuh to monitor allowed and blocked network traffic.
+Integrated OPNsense firewall logs with Wazuh to monitor allowed and blocked network traffic during the firewall testing phase.
 
 ### 5. Custom Detection Engineering
 
@@ -86,6 +88,21 @@ Created a custom Wazuh dashboard containing:
 - MITRE ATT&CK techniques
 - Alert evolution
 - Top alert types
+
+## Lab Evidence
+
+Selected screenshots from the lab implementation:
+
+### SOC Dashboard
+![Wazuh SOC Dashboard](screenshots/16_SOC_Dashboard_Overview.png)
+
+### Custom Firewall Detection
+![Wazuh Custom Rule 100050 Alerts](screenshots/19_Wazuh_Custom_Rule_100050_Alerts.png)
+
+### Firewall Block and Nmap Testing
+![OPNsense Nmap Firewall Block Logs](screenshots/20_OPNsense_Nmap_Firewall_Block_Logs.png)
+
+![Kali Nmap Scan Results](screenshots/21_Kali_Nmap_Scan_Results.png)
 
 ## Detection Evidence
 
