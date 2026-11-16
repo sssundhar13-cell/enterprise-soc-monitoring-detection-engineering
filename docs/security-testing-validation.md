@@ -1,4 +1,3 @@
-
 # Security Testing and Validation
 
 ## 1. Testing Overview
@@ -14,7 +13,7 @@ Kali Linux was used as the authorized testing machine to generate network scan t
 Test command:
 
 ```bash
-nmap -Pn -sT -p 80,443 192.168.10.10
+nmap -Pn -sT -p 80,443 <LAB_ENDPOINT_IP>
 ```
 
 The test targeted TCP ports 80 and 443.
@@ -36,8 +35,8 @@ Wazuh processed the firewall events and generated alerts using the custom detect
 | Custom Rule ID | 100050 |
 | Severity Level | 10 |
 | Firewall Action | block |
-| Source IP | 192.168.182.128 |
-| Destination IP | 192.168.10.10 |
+| Source IP | <KALI_LAB_IP> |
+| Destination IP | <LAB_ENDPOINT_IP> |
 
 ## 5. Endpoint Monitoring Validation
 
