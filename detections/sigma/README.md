@@ -1,32 +1,42 @@
+# Custom Sigma Detection Rule Drafts
 
-# Custom Sigma Detection Rules
+This directory contains draft Sigma detection rules and a related Lucene query prepared for the Enterprise SOC Monitoring and Detection Engineering Lab.
 
-This directory contains custom Sigma detection rules developed for the Enterprise SOC Monitoring and Detection Engineering Lab.
-
-## Implemented Sigma Rules
+## Rule Files
 
 | Rule File | Detection Purpose | MITRE ATT&CK |
 |---|---|---|
 | custom_certutil_download.yml | Suspicious Certutil download activity | T1105 |
-| custom_suspicious_powershell.yml | Encoded PowerShell command execution | T1059.001 |
+| custom_suspicious_powershell.yml | Encoded-command or download-related PowerShell execution | T1059.001, T1027 |
 
 ## Rule Details
 
 ### 1. Suspicious Certutil Download Activity
 
-Detects certutil.exe process execution with URL or download-related command-line arguments.
+Detects `certutil.exe` process execution when the command line contains URL-cache and HTTP indicators.
 
-### 2. Suspicious PowerShell Encoded Command Execution
+### 2. Suspicious PowerShell Execution
 
-Detects PowerShell process creation involving encoded command arguments.
+Detects PowerShell or PowerShell 7 process creation involving encoded-command arguments or download-related command strings.
 
-## Additional Artifact
+## Additional Artifact: Lucene Query
 
-The custom_suspicious_powershell_lucene.txt file contains a Lucene query associated with the PowerShell detection.
+The `custom_suspicious_powershell_lucene.txt` file contains a Lucene query intended to search for encoded PowerShell command activity.
+
+The query assumes that indexed events expose the fields `process.executable.caseless` and `process.command_line`. Confirm the actual index mappings and available fields before using it.
 
 ## Validation Status
 
-The Sigma YAML files were created in the lab. Conversion, SIEM deployment and end-to-end validation are not confirmed in this documentation.
+These files are draft repository artifacts. The following work remains pending:
+
+- Validate both YAML files with a Sigma-compatible parser.
+- Confirm that the selected log source and field names match the actual Windows event data.
+- Convert or independently implement the detection logic for the target SIEM.
+- Deploy only after rule review and test in the lab.
+- Perform controlled test events and verify the expected alerts.
+- Tune false positives based on observed results.
+
+Uploading a Sigma file to GitHub does not by itself mean that the rule is deployed or producing alerts in Wazuh.
 
 ## Security Notice
 
