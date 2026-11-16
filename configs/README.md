@@ -1,17 +1,17 @@
-# SOC Lab Configuration Files
 
-This directory contains sanitized configuration examples used in the SOC lab.
+# SOC Lab Configuration
 
-## Planned Configuration Artifacts
+This directory contains documentation about the configuration artifacts used in the Enterprise SOC Monitoring and Detection Engineering Lab.
 
-- Wazuh custom detection rules
-- Wazuh agent configuration examples
-- Sysmon configuration references
-- OPNsense firewall configuration notes
-- Syslog integration settings
+## Current Configuration Status
+
+- Wazuh custom firewall block detection rule is documented in the `wazuh/` directory.
+- Wazuh Agent is configured on the Windows 11 endpoint.
+- Sysmon is configured for Windows endpoint telemetry.
+- OPNsense is configured for firewall traffic filtering and logging.
 
 ## Security Notice
 
-Only sanitized and non-sensitive configuration examples will be published.
+All published configuration information must be sanitized.
 
-Passwords, API keys, private keys, and sensitive network information must never be committed.
+Credentials, API keys, private keys, authentication tokens, and sensitive information must not be published.
