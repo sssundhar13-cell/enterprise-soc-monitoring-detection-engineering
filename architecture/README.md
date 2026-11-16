@@ -4,7 +4,7 @@
 
 The Enterprise SOC Monitoring and Detection Engineering Lab is designed to demonstrate centralized security monitoring, endpoint telemetry collection, firewall log analysis, and custom threat detection.
 
-The environment uses multiple virtual machines connected through a virtualized network infrastructure.
+The diagram below documents the OPNsense-based logical topology used during the earlier firewall integration and detection tests.
 
 ## 2. Lab Components
 
@@ -52,3 +52,7 @@ The environment uses multiple virtual machines connected through a virtualized n
        (Active Directory
             + DNS)
 ```
+
+## 4. Runtime Status Note
+
+The OPNsense VM is currently powered off. This diagram records the previously configured and tested logical topology; it does not indicate that the firewall is running now. Recheck interface assignments, routes, and firewall rules before bringing this topology back online.
