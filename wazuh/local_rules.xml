@@ -1,0 +1,13 @@
+<group name="local,">
+
+  <!-- Public example: replace 192.0.2.10 with your protected endpoint IP in your private lab configuration. -->
+
+  <rule id="100050" level="10">
+    <if_sid>87700</if_sid>
+    <action>block</action>
+    <dstip>192.0.2.10</dstip>
+    <description>SOC Lab: Firewall blocked traffic targeting the protected Windows endpoint - possible Nmap scan</description>
+    <group>local,firewall,nmap_scan,</group>
+  </rule>
+
+</group>
