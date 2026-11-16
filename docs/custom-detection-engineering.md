@@ -1,4 +1,3 @@
-
 # Custom Detection Engineering
 
 ## 1. Overview
@@ -25,7 +24,7 @@ The custom rule uses the following conditions:
 
 - The event must match the base firewall rule 87700.
 - The firewall action must be `block`.
-- The destination IP must match the protected Windows 11 endpoint: `192.168.10.10`.
+- The destination IP must match the protected Windows 11 endpoint: `<LAB_ENDPOINT_IP>`.
 
 When all conditions match, Wazuh generates an alert with Rule ID 100050 and severity level 10.
 
@@ -54,7 +53,7 @@ An authorized Nmap TCP connect scan was performed from the Kali Linux testing ma
 Test command:
 
 ```bash
-nmap -Pn -sT -p 80,443 192.168.10.10
+nmap -Pn -sT -p 80,443 <LAB_ENDPOINT_IP>
 ```
 
 OPNsense firewall logs recorded blocked traffic targeting the Windows 11 endpoint.
