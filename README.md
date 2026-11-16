@@ -99,7 +99,9 @@ Created a custom Wazuh dashboard containing:
 
 Core SOC monitoring, endpoint telemetry, firewall log collection, custom detection, and controlled Nmap testing have been demonstrated.
 
-Additional detection capabilities such as Sigma, YARA, and Suricata remain future development items until separately implemented and validated.
+Two Sigma rule drafts (Certutil download and suspicious PowerShell) and an associated PowerShell Lucene query are included in `detections/sigma/`. They are repository artifacts at this stage; Sigma parser validation, field mapping, conversion/deployment to Wazuh, and end-to-end alert testing remain pending.
+
+YARA and Suricata remain future development items.
 
 ## Security Notice
 
