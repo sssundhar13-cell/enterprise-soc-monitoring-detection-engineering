@@ -17,32 +17,35 @@ The environment uses multiple virtual machines connected through a virtualized n
 | Testing Machine | Kali Linux | Authorized security testing |
 
 ## 3. Logical Architecture Diagram
+## 3. Logical Architecture Diagram
 
 ```text
              KALI LINUX
           (Security Testing)
                   |
-                  | Nmap Test Traffic
+                  | Nmap Scan Traffic
                   v
           OPNSENSE FIREWALL
                   |
-          +-------+--------+
-          |                |
-     Allowed Traffic    Firewall Logs
-          |                |
-          v                v
-    WINDOWS 11        UBUNTU SOC SERVER
-    (Agent + Sysmon)  (Wazuh Manager)
-          |                |
-          |                v
-          |          WAZUH INDEXER
-          |                |
-          |                v
-          |         WAZUH DASHBOARD
-          |
-          | Active Directory / DNS
-          |
-          v
-    WINDOWS SERVER 2019
-       (DC01)
-```
+          +-------+----------------+
+          |                        |
+     Filtered Traffic          Firewall Logs
+          |                        |
+          v                        v
+      WINDOWS 11              UBUNTU SOC SERVER
+   (Wazuh Agent + Sysmon)     (Wazuh Manager)
+          |                        |
+          | Agent Events           v
+          +----------------> WAZUH INDEXER
+                                   |
+                                   v
+                             WAZUH DASHBOARD
+
+          WINDOWS 11
+               |
+               | AD Authentication / DNS
+               v
+       WINDOWS SERVER 2019
+        (Active Directory
+             + DNS)
+
